@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'uglyqua';
+    src: url('uglyqua.ttf');
+}
+html {
+  background-image: url('bg.jpg');
+  font-family: uglyqua;
+  font-size: 2em;
+}
+input {
+  color: white;
+  font-family: uglyqua;
+  font-size: 1em;
+  background-color: transparent;
+  border: none;
+}
+td {
+  padding-right: 1em;
+}
