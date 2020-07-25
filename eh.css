@@ -4,6 +4,7 @@
 }
 html {
   background-image: url('bg.jpg');
+  background-size: cover;
   font-family: uglyqua;
   font-size: 2em;
 }
