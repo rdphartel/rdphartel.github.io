@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8"/>
+<title>EH</title>
+
+<script>
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+  // Pick a remaining element...
+  randomIndex = Math.floor(Math.random() * currentIndex);
+  currentIndex -= 1;
+
+  // And swap it with the current element.
+  temporaryValue = array[currentIndex];
+  array[currentIndex] = array[randomIndex];
+  array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+function gimme(count) {
+  var names = [
+    "Agatha Crane",
+    "Agnes Baker",
+    "Akachi Onyele",
+    "Amanda Sharpe",
+    "\"Ashcan\" Pete",
+    "Bob Jenkins",
+    "Calvin Wright",
+    "Carolyn Fern",
+    "Carson Sinclair",
+    "Charlie Kane",
+    "Daisy Walker",
+    "Daniela Reyes",
+    "Darrell Simmons",
+    "Dexter Drake",
+    "Diana Stanley",
+    "Father Mateo",
+    "Finn Edwards",
+    "George Barnaby",
+    "Gloria Goldberg",
+    "Hank Samson",
+    "Harvey Walters",
+    "Jacqueline Fine",
+    "Jenny Barnes",
+    "Jim Culver",
+    "Joe Diamond",
+    "Kate Winthrop",
+    "Leo Anderson",
+    "Lily Chen",
+    "Lola Hayes",
+    "Luke Robinson",
+    "Mandy Thompson",
+    "Marie Lambeau",
+    "Mark Harrigan",
+    "Michael McGlen",
+    "Minh Thi Phan",
+    "Monterey Jack",
+    "Norman Withers",
+    "Patrice Hathaway",
+    "Preston Fairmont",
+    "Rex Murphy",
+    "Rita Young",
+    "Roland Banks",
+    "Sefina Rousseau",
+    "Silas Marsh",
+    "Sister Mary",
+    "\"Skids\" O'Toole",
+    "Tommy Muldoon",
+    "Tony Morgan",
+    "Trish Scarborough",
+    "Ursula Downs",
+    "Vincent Lee",
+    "Wendy Adams",
+    "William Yorick",
+    "Wilson Richards",
+    "Zoey Samaras"
+  ];
+
+  var content = "";
+  var i;
+
+  shuffle(names);
+  for (i = 0; i < count; i++) {
+    content += names[i] + "<br>";
+  }
+  document.getElementById('names').innerHTML = content;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<input type="button" value="1" onclick="gimme(1)">
+<input type="button" value="2" onclick="gimme(2)">
+<input type="button" value="3" onclick="gimme(3)">
+<input type="button" value="4" onclick="gimme(4)">
+<input type="button" value="5" onclick="gimme(5)">
+<input type="button" value="6" onclick="gimme(6)">
+<input type="button" value="7" onclick="gimme(7)">
+<input type="button" value="8" onclick="gimme(8)">
+
+<p>
+<div id="names"></div>
+
+</body>
+
+</html>
