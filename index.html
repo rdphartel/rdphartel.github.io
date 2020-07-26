@@ -2,108 +2,12 @@
 <html lang="en">
 
 <head>
-
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="eh.css">
 <title>EH</title>
-
-<script>
-
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-  // Pick a remaining element...
-  randomIndex = Math.floor(Math.random() * currentIndex);
-  currentIndex -= 1;
-
-  // And swap it with the current element.
-  temporaryValue = array[currentIndex];
-  array[currentIndex] = array[randomIndex];
-  array[randomIndex] = temporaryValue;
-  }
-
-  return array;
-}
-
-function gimme(count, vassal) {
-  var investigators = [
-    ["Agatha Crane", true],
-    ["Agnes Baker", false],
-    ["Akachi Onyele", false],
-    ["Amanda Sharpe", true],
-    ["\"Ashcan\" Pete", true],
-    ["Bob Jenkins", true],
-    ["Calvin Wright", true],
-    ["Carolyn Fern", true],
-    ["Carson Sinclair", true],
-    ["Charlie Kane", false],
-    ["Daisy Walker", false],
-    ["Daniela Reyes", true],
-    ["Darrell Simmons", true],
-    ["Dexter Drake", false],
-    ["Diana Stanley", false],
-    ["Father Mateo", true],
-    ["Finn Edwards", false],
-    ["George Barnaby", false],
-    ["Gloria Goldberg", true],
-    ["Hank Samson", false],
-    ["Harvey Walters", false],
-    ["Jacqueline Fine", false],
-    ["Jenny Barnes", false],
-    ["Jim Culver", false],
-    ["Joe Diamond", false],
-    ["Kate Winthrop", true],
-    ["Leo Anderson", false],
-    ["Lily Chen", false],
-    ["Lola Hayes", false],
-    ["Luke Robinson", true],
-    ["Mandy Thompson", false],
-    ["Marie Lambeau", false],
-    ["Mark Harrigan", false],
-    ["Michael McGlen", false],
-    ["Minh Thi Phan", false],
-    ["Monterey Jack", false],
-    ["Norman Withers", false],
-    ["Patrice Hathaway", false],
-    ["Preston Fairmont", true],
-    ["Rex Murphy", false],
-    ["Rita Young", true],
-    ["Roland Banks", true],
-    ["Sefina Rousseau", true],
-    ["Silas Marsh", false],
-    ["Sister Mary", false],
-    ["\"Skids\" O'Toole", false],
-    ["Tommy Muldoon", false],
-    ["Tony Morgan", false],
-    ["Trish Scarborough", false],
-    ["Ursula Downs", false],
-    ["Vincent Lee", true],
-    ["Wendy Adams", false],
-    ["William Yorick", true],
-    ["Wilson Richards", false],
-    ["Zoey Samaras", false]
-  ];
-
-  var content = "";
-  var i;
-  var found = 0;
-
-  shuffle(investigators);
-  for (i = 0; found < count && i < investigators.length; i++) {
-    if (!vassal || !investigators[i][1]) {
-      content += investigators[i][0] + "<br>";
-      found++;
-    }
-  }
-  document.getElementById('investigators').innerHTML = content;
-}
-
-</script>
-
+<script src="js/eh.js"></script>
+<link rel="stylesheet" href="css/eh.css">
+<link rel="icon" type="image/png" href="favicon.png" />
 </head>
 
 <body>
@@ -131,8 +35,8 @@ function gimme(count, vassal) {
 <td><input type="button" value="7" onclick="gimme(7, true)"></td>
 <td><input type="button" value="8" onclick="gimme(8, true)"></td>
 </tr>
-
 </table>
+
 <p>
 <div id="investigators"></div>
 

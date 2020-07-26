@@ -1,9 +1,9 @@
 @font-face {
-    font-family: 'uglyqua';
-    src: url('uglyqua.ttf');
+  font-family: 'uglyqua';
+  src: url('../fonts/uglyqua.ttf');
 }
 html {
-  background-image: url('bg.jpg');
+  background-image: url('../img/bg.jpg');
   background-size: cover;
   font-family: uglyqua;
   font-size: 2em;
