@@ -7,12 +7,15 @@ html {
   background-size: cover;
   background-color: black;
   font-family: uglyqua;
-  font-size: 2em;
+  /*font-size: 2em;*/
   color: white;
+}
+#vs {
+  color: black;
 }
 input {
   font-family: uglyqua;
-  font-size: 1em;
+  /*font-size: 1em;*/
   background-color: transparent;
   border: none;
 }

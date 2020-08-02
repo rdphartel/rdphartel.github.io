@@ -1,3 +1,22 @@
+var ancientOnes = [
+    {name: "Abhoth", inVassal: true},
+    {name: "Antediluvium", inVassal: false},
+    {name: "Atlach-Nacha", inVassal: false},
+    {name: "Azathoth", inVassal: true},
+    {name: "Cthulhu", inVassal: true},
+    {name: "Elder Things", inVassal: true},
+    {name: "Hastur", inVassal: true},
+    {name: "Hypnos", inVassal: false},
+    {name: "Ithaqua", inVassal: true},
+    {name: "Nephren-Ka", inVassal: true},
+    {name: "Nyarlathotep", inVassal: false},
+    {name: "Shub-Niggurath", inVassal: true},
+    {name: "Shudde M'ell", inVassal: false},
+    {name: "Syzygy", inVassal: true},
+    {name: "Yig", inVassal: true},
+    {name: "Yog-Sothoth", inVassal: true}
+];
+
 var investigators = [
     {name: "Agatha Crane", inVassal: false},
     {name: "Agnes Baker", inVassal: true},
@@ -75,28 +94,42 @@ function shuffle(array) {
 }
 
 function generate() {
-    var content = "";
-    var found = 0;
+    var chosenInvestigators = "";
+    var vs = "";
+    var chosenAncientOne = "&nbsp;";
+    var found;
     var i;
 
     // Skip shuffling for the first generate
     if (this.nodeName) {
+        shuffle(ancientOnes);
         shuffle(investigators);
 
-        for (i = 0; found < this.value && i < investigators.length; i += 1) {
-            if (this.anyInvestigator || investigators[i].inVassal) {
-                content += investigators[i].name + "<br>";
+        for (found = 0, i = 0; found < 1 && i < ancientOnes.length; i += 1) {
+            if (this.anyExpansion || ancientOnes[i].inVassal) {
+                chosenAncientOne = ancientOnes[i].name;
                 found += 1;
             }
         }
+
+        for (found = 0, i = 0; found < this.value && i < investigators.length; i += 1) {
+            if (this.anyExpansion || investigators[i].inVassal) {
+                chosenInvestigators += investigators[i].name + "<br>";
+                found += 1;
+            }
+        }
+
+        vs = "vs.";
     }
 
     // Ugly fix to get a stable background
     for (i = found; i < maxButtons; i += 1) {
-        content += "&nbsp;<br>";
+        chosenInvestigators += "&nbsp;<br>";
     }
 
-    document.getElementById("investigators").innerHTML = content;
+    document.getElementById("ancientOne").innerHTML = chosenAncientOne;
+    document.getElementById("vs").innerHTML = vs;
+    document.getElementById("investigators").innerHTML = chosenInvestigators;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -118,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
             button = document.createElement("input");
             button.type = "button";
             button.value = i;
-            button.anyInvestigator = variant.value;
+            button.anyExpansion = variant.value;
             button.addEventListener("click", generate);
             cell.appendChild(button);
         }
