@@ -13,6 +13,9 @@ html {
 #vs {
   color: black;
 }
+a {
+  color: white;
+}
 input {
   font-family: uglyqua;
   /*font-size: 1em;*/
